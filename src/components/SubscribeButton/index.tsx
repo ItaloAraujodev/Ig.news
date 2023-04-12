@@ -22,9 +22,9 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps){
             console.log(response.data.sessionId)
             const { sessionId } = response.data;
             const stripe = await getStripeJs()
-            await stripe?.redirectToCheckout(sessionId)
-        } catch (err) {
-            alert(err.messag)
+            await stripe?.redirectToCheckout({sessionId})
+        } catch (error) {
+            alert("Deu error");
         }
     }
 
